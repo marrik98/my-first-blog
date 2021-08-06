@@ -9,17 +9,15 @@
             <h1><a href="/">Mark's Games</a></h1>
         </div>
 
-        <div>
-            <p>published: 05.08.2021, 23:28</p>
-            <h2><a href="">My first post</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</p>
-        </div>
-
-        <div>
-            <p>published: 06.08.2021, 00:14</p>
-            <h2><a href="">My second post</a></h2>
-            <p>Aenean eu leo quam. Pellentesque ornare sem lacinia quam venenatis vestibulum. Donec id elit non mi porta gravida at eget metus. Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut f.</p>
-        </div>
+        {% for game in games %}
+            <div>
+                <hr>
+                <p>published: {{ game.published_date }}</p>
+                <h1><a href="">{{ game.title }}</a></h1>
+                <p>{{ game.text|linebreaksbr }}</p>
+                <hr>
+            </div>
+        {% endfor %}
     </body>
     
 </html>
