@@ -1,23 +1,41 @@
+{% load static %}
+
 <html>
     
     <head>
         <title>Mark's game</title>
+
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+        <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+
+        <link href="https://fonts.googleapis.com/css?family=Lobster&subset=latin,cyrillic" rel="stylesheet" type="text/css">
+
+        <link rel="stylesheet" href="{% static 'css/game.css' %}">
     </head>
 
     <body>
-        <div>
+        <div class="page-header">
             <h1><a href="/">Mark's Games</a></h1>
         </div>
 
-        {% for game in games %}
-            <div>
-                <hr>
-                <p>published: {{ game.published_date }}</p>
-                <h1><a href="">{{ game.title }}</a></h1>
-                <p>{{ game.text|linebreaksbr }}</p>
-                <hr>
+        <div class="content container">
+            <div class="row">
+                <div class="col-md-8">
+                    {% for game in games %}
+                        <div class="game">
+                            <hr>
+                            <div class="date">
+                                <p>Опубликовано: {{ game.published_date }}</p>
+                            </div>
+                            <h1><a href="">{{ game.title }}</a></h1>
+                            <p>{{ game.text|linebreaksbr }}</p>
+                            <hr>
+                        </div>
+                    {% endfor %}
+                </div>
             </div>
-        {% endfor %}
+        </div>
+
     </body>
     
 </html>
