@@ -6,9 +6,13 @@
             <div class="date">
                 {{ game.published_date }}
             </div>
-        {% endif %}    
+        {% endif %}
+        {% if user.is_authenticated %}
+            <a class="btn btn-default" href="{% url 'game_edit' pk=game.pk %}"><span class="glyphicon glyphicon-pencil"></span></a>
+        {% endif %}
         <h1>{{ game.title }}</h1>
         <p>{{ game.text|linebreaksbr }}</p>
+        
     </div>    
 {% endblock content %}
 
